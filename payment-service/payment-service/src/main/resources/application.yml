@@ -1,0 +1,24 @@
+server:
+  port: 9191
+spring:
+  config:
+    import: optional:configserver:http://localhost:9196
+  datasource:
+    url: jdbc:h2:mem:payment_db
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+  application:
+    name: PAYMENT-SERVICE
+logging:
+  file:
+    path: D:/dvvte/microservice_logs/payment_service
+
+#Actuator Config
+management:
+  tracing:
+    sampling:
+      probability: 1.0
